@@ -1,0 +1,102 @@
+html,
+body {
+  margin: 0px;
+  background-color: #EDE4E0;
+}
+
+.header{
+    text-align: center;
+    background-color: #C8DBBE;
+    padding: 20px
+}
+
+.addBook{
+background-color:transparent;
+cursor: pointer;
+border-style: none;
+}
+
+.book{
+    background-color: transparent;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+}
+
+.book > button {
+    margin-left: 5px;
+}
+
+.bookRead{
+    background-color: #d8d0cc;
+}
+
+
+.main > div{
+    border-style: solid;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px 150px;
+    gap: 50px;
+    padding-top: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.addBook:hover{
+    background-color: #d8d0cc; 
+}
+
+.form{
+    display: grid;
+    visibility: hidden;
+    text-align: center;
+    background-color: #EDE4E0;
+    padding: 0px 20px 20px;
+    position: fixed;
+    max-width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    box-shadow: 11px 13px 400px 200px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 11px 13px 4000px 2000px rgba(0,0,0,0.6);
+    -moz-box-shadow: 11px 13px 4000px 2000px rgba(0,0,0,0.6);
+}
+
+.formInput{
+    display: grid;
+    gap: 5px;
+}
+
+input[type=text], input[type=number], input[type=submit]{
+    height: 30px;
+}
+
+::placeholder {
+    text-align: center; 
+ }
+
+.formSubmit{
+    background-color: #9F8772;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+.formSubmit:hover{
+    background-color: #786555;
+}
+
+.close {
+    float: right;
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+    transform: translate(100px, 15px);    
+}
+
+
