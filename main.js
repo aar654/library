@@ -5,17 +5,9 @@ const btnClose = document.querySelector('.close');
 const addBook = document.querySelector('.addBook');
 const formInput = document.getElementById('formInput');
 
-addBook.onclick = function () {
-  form.style.visibility = "visible";
-}
-
-btnClose.onclick = function () {
-  form.style.visibility = "hidden";
-}
-
 let myLibrary = [
 
-  new Book ("Book Title", "Book Author", "Page Number", true)
+  new Book("Heartstopper", "Alice Oseman", "360", true)
 
 ];
 
@@ -49,8 +41,13 @@ function showBooks() {
     });
 
     btnDelete.addEventListener("click", function () {
+      const index = myLibrary.findIndex(book => book.title === title.innerText.replace('Title: ', ''));
+      if (index !== -1) {
+        removeBookFromLibrary(index);
+        main.removeChild(book);
+      }
     });
-}
+  }
 }
 
 function Book(title, author, pages, read) {
@@ -69,18 +66,18 @@ function addBookToLibrary(titleValue, authorValue, pagesValue, readValue) {
   myLibrary.push(newBook);
 }
 
-function removeBookFromLibrary(){
-  
+function removeBookFromLibrary(index) {
+  myLibrary.splice(index, 1);
 }
 
 formInput.addEventListener("submit", function (e) {
   e.preventDefault();
-  const titleValue = document.getElementById('titleValue').value;
-  const authorValue = document.getElementById('authorValue').value;
-  const pagesValue = document.getElementById('pagesValue').value;
-  const readValue = document.getElementById('readValue').checked;
+  let titleValue = document.getElementById('titleValue').value;
+  let authorValue = document.getElementById('authorValue').value;
+  let pagesValue = document.getElementById('pagesValue').value;
+  let readValue = document.getElementById('readValue').checked;
 
-  addBookToLibrary(titleValue, authorValue, pagesValue,readValue);
+  addBookToLibrary(titleValue, authorValue, pagesValue, readValue);
 
   const book = document.createElement("div")
   book.className = "book"
@@ -101,7 +98,8 @@ formInput.addEventListener("submit", function (e) {
   book.appendChild(btnDelete)
   main.appendChild(book)
 
-  if (readValue == true) {
+  if (readValue === true) {
+    book.classList.add("bookRead")
     book.classList.toggle("bookRead");
   }
 
@@ -110,17 +108,28 @@ formInput.addEventListener("submit", function (e) {
   });
 
   btnDelete.addEventListener("click", function () {
+    const index = myLibrary.findIndex(book => book.title === title.innerText.replace('Title: ', ''));
+    if (index !== -1) {
+      removeBookFromLibrary(index);
+      main.removeChild(book);
+    }
   });
+  
+  form.style.visibility = "hidden";
+
+  document.getElementById('titleValue').value = "";
+  document.getElementById('authorValue').value = "";
+  document.getElementById('pagesValue').value = "";
+  document.getElementById('readValue').checked = false;
 
 });
 
+addBook.onclick = function () {
+  form.style.visibility = "visible";
+}
+
+btnClose.onclick = function () {
+  form.style.visibility = "hidden";
+}
+
 showBooks();
-
-
-
-
-
-
-
-
-
