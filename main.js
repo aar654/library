@@ -33,7 +33,7 @@ function showBooks() {
     main.appendChild(book)
 
     if (myLibrary[i].read == true) {
-      book.classList.toggle("bookRead");
+      book.classList.add("bookRead");
     }
 
     read.addEventListener("click", function () {
@@ -100,7 +100,6 @@ formInput.addEventListener("submit", function (e) {
 
   if (readValue === true) {
     book.classList.add("bookRead")
-    book.classList.toggle("bookRead");
   }
 
   read.addEventListener("click", function () {
@@ -120,7 +119,7 @@ formInput.addEventListener("submit", function (e) {
   document.getElementById('titleValue').value = "";
   document.getElementById('authorValue').value = "";
   document.getElementById('pagesValue').value = "";
-  document.getElementById('readValue').checked = false;
+  document.getElementById('readValue').checked;
 
 });
 
